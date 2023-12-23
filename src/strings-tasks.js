@@ -329,8 +329,9 @@ function isPalindrome(str) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  const words = sentence.split(' ').sort((a, b) => b.length - a.length);
+  return words[0];
 }
 
 /**
@@ -343,8 +344,12 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const items = str.split(' ');
+  if (items.length === 0) return '';
+  if (items.length !== 0)
+    return items.map((el) => el.split('').reverse().join('')).join(' ');
+  return items;
 }
 
 /**
@@ -358,10 +363,15 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  return str
+    .split('')
+    .map((el) =>
+      el === el.toUpperCase() ? el.toLowerCase() : el.toUpperCase()
+    )
+    .join('');
 }
-
+invertCase('JavaScript is Fun');
 /**
  * Returns the result of string template and given parameters firstName and lastName.
  * Please do not use concatenation, use template string :
@@ -375,8 +385,8 @@ function invertCase(/* str */) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
+function getStringFromTemplate(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -389,8 +399,8 @@ function getStringFromTemplate(/* firstName, lastName */) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  return value.replace('Hello, ', '').replace('!', '');
 }
 
 /**
@@ -404,8 +414,8 @@ function extractNameFromTemplate(/* value */) {
  *   unbracketTag('<span>') => 'span'
  *   unbracketTag('<a>') => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  return str.replace('<', '').replace('>', '');
 }
 
 /**
@@ -423,8 +433,8 @@ function unbracketTag(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
